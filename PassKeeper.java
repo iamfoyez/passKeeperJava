@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -48,14 +50,21 @@ public class PassKeeper {
             }
             parser.close();
         } catch (FileNotFoundException e) {
+            System.out.println("No File Found!");
             e.printStackTrace();
         }
     }
 
-    private String writeData() {
-        String str = "";
-        str += "~~Passwords\n";
-        return str;
+    private boolean writeData() {
+        try {
+            FileWriter writer = new FileWriter(this.fileName);
+            writer.write(this.toString());
+            writer.close();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
