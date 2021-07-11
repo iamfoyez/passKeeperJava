@@ -52,13 +52,30 @@ public class PassKeeper {
         }
     }
 
+    private String writeData() {
+        String str = "";
+        str += "~~Passwords\n";
+        return str;
+    }
+
     @Override
     public String toString() {
-        String str = "";
-        str += this.passwords.toString();
-        str += this.emails.toString();
-        str += this.websites.toString();
-        return str;
+        String str = "~~Passwords\n";
+        // Loop through all passwords
+        for (int i = 0; i < this.passwords.size(); i++) {
+            str += this.passwords.get(i).toString() + "\n";
+        }
+        str += "~~Emails\n";
+        // Loop through all Emails.
+        for (int i = 0; i < this.emails.size(); i++) {
+            str += this.emails.get(i).toString() + "\n";
+        }
+        str += "~~Websites\n";
+        // Loop through all websites.
+        for (int i = 0; i < this.websites.size(); i++) {
+            str += this.websites.get(i).toString() + "\n";
+        }
+        return str.strip();
     }
 
     public static void main(String[] args) {
