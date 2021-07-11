@@ -29,9 +29,20 @@ public class Email {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Email))
+            return false;
+        Email m1 = (Email) obj;
+        if (m1.getAddress().equals(this.getAddress()))
+            return true;
+        return false;
+    }
+
+    @Override
     public String toString() {
-        // format-> provider, username, domain, passId
-        return this.provider + "," + this.username + "," + this.domain + "," + this.pass.getId();
+        // format-> passId, provider, username, domain
+        // 1,Google,aflextra,gmail.com
+        return this.pass.getId() + "," + this.provider + "," + this.username + "," + this.domain;
     }
 
 }

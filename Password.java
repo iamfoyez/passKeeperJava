@@ -25,6 +25,18 @@ public class Password {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Password))
+            return false;
+        Password p1 = (Password) obj;
+        if (p1.id == this.id)
+            return true;
+        if (p1.pass.equals(this.pass))
+            return true;
+        return false;
+    }
+
+    @Override
     public String toString() {
         return this.id + "~" + this.pass;
     }
