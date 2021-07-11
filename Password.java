@@ -1,9 +1,19 @@
 public class Password {
 
     private String pass;
+    private int id;
 
-    public Password(String pass) {
+    public Password(String pass, int id) {
         this.pass = pass;
+        this.id = id;
+    }
+
+    public String getPassword() {
+        return this.pass;
+    }
+
+    public int getId() {
+        return this.id;
     }
 
     public void copy() {
@@ -12,7 +22,7 @@ public class Password {
 
     @Override
     public String toString() {
-        return this.pass;
+        return this.id + "~" + this.pass;
     }
 
 }
