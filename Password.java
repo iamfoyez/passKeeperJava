@@ -20,6 +20,10 @@ public class Password {
         Copy.clipboardCopy(this.pass);
     }
 
+    public String getDisplayText() {
+        return this.id + " " + this.pass;
+    }
+
     @Override
     public String toString() {
         return this.id + "~" + this.pass;
